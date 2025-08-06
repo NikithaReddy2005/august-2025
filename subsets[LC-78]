@@ -1,0 +1,13 @@
+nums = list(map(int,(input().split())))         # taking input elements in list
+ans = []                                        # an empty list usd to append all the subsets
+def subsets():                                  # fun defination
+    n = len(nums)                               # n stores the value of length of lst(no of elements)
+    total_subsets= 1<<n                         #total no of subsets in the list using bit manipulation
+    for val in range(total_subsets):             #0 to 2
+        lst=[]                                   # empty list to append subset elements
+        for i in range(n):                       #iterte it until 0 to n-1(i is the index)
+            if(val & (1<<i)):                    # and oper b/w val and left shift of i(0 to n-1 indexes)
+                lst.append(nums[i])              # if the condition is the satisfied we append the ele in list
+        ans.append(lst)                          # once the subset iteration is done then we append  the list to ans list
+    return ans                                   #ans subset is returned to function call
+print(subsets())                                 # function call

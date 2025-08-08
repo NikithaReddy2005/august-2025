@@ -1,0 +1,9 @@
+nums=list(map(int,input().split(" ")))
+def subarray(nums):
+    lst=[]
+    n=len(nums)
+    for i in range(n):
+        for j in range(i,n):
+            lst.append(nums[i:j+1])
+    return lst
+print(subarray(nums))
